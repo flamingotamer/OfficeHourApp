@@ -44,7 +44,7 @@ def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
 
 #view
-@app.route('/')
+@app.route('/logged_in')
 def show_entries():
     def sort_cat(entries):
         for i in range(len(entries)):
@@ -60,7 +60,7 @@ def show_entries():
         entries = sort_cat(entries)
     return render_template('show_entries.html', entries=entries)
 
-@app.route('/logged_out')
+@app.route('/')
 def show_entries_logout():
     def sort_cat(entries):
         for i in range(len(entries)):
